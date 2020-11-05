@@ -20,7 +20,7 @@ namespace WP_2020_01_HW02_3A713155
         {
             InitializeComponent();
         }
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             result.Add(Resources._1);
