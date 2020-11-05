@@ -15,7 +15,7 @@ namespace WP_2020_01_HW02_3A713155
     public partial class Form1 : Form
     {
         List<Image> result = new List<Image>();
-
+        int check = 0;
         public Form1()
         {
             InitializeComponent();
@@ -75,13 +75,29 @@ namespace WP_2020_01_HW02_3A713155
             result.Add(Resources._50);
             result.Add(Resources._51);
             result.Add(Resources._52);
-            
+           
         }
 
         private void btn_Click(object sender, EventArgs e)
         {
-            int rindex = (new Random()).Next(51) + 1; 
-            pic.Image = result[rindex];
+            int xindex = (new Random()).Next(51) + 1;//產生亂數
+            int y = (new Random()).Next(4) + 1;
+            if (check != xindex)//檢查是否與上張牌相同
+            {
+                pic.Image = result[xindex];
+                check = xindex;
+            }
+            else//相同的話
+            {
+                if(xindex >= check)
+                {
+                    pic.Image = result[xindex - y]; 
+                }
+                if(xindex <= check)
+                {
+                    pic.Image = result[xindex + y]; 
+                }
+            }
         }
     }
 }
